@@ -1,0 +1,307 @@
+* {
+  margin: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+  font-family: Helvetica, sans-serif;
+  transition: all 0.25s;
+}
+:root{
+	--primary-900: #004D40;
+	--primary-700: #00796B;
+	/*Sampled from Paint to avoid transparent sticky headers*/
+	--primary-light: #4D9D94;
+	--primary-300: #4DB6AC;
+	--primary-200: #80CBC4;
+	--primary-100: #B2DFDB;
+	--primary-50: #E0F2F1;
+}
+body {
+  background: var(--primary-100);
+  display: grid;
+  place-items: center;
+  /*Needed because we have no percentage of any parent to relate to*/
+  height: 100vh;
+  color: white;
+  overscroll-behavior: none;
+  user-select: none; /* Standard syntax */
+  -webkit-user-select: none; /* Safari */
+}
+main {
+  position: absolute;
+  top:0;
+  left:0;
+  right:0;
+  height: 100%;
+  overflow: hidden;
+  background: linear-gradient(0deg, var(--primary-900) 0%, var(--primary-700) 100%);
+}
+.container {
+  overflow-x: hidden;
+  width: 100%;
+}
+/*No firefox support*/
+::-webkit-scrollbar {
+  width: 0.5em;
+  background: rgba(0,0,0,0.125);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.5);
+}
+.content {
+  display: flex;
+}
+.item {
+  background: transparent;
+  flex: 1 0 100%;
+  height:100vh;
+  flex-direction: column;
+  align-items: center;
+  overflow:scroll;
+  padding-bottom:20vh;
+}
+h1 {
+	padding: 5%;
+	text-align:center;
+}
+table {
+  border-collapse: collapse;
+  table-layout: fixed;
+  width: 90%;
+  margin: 5%;
+}
+thead {
+	position: sticky;
+	top:0;
+}
+thead tr {
+  font-weight: bold;
+  font-size: 1rem;
+  text-align: left;
+background: rgba(200, 200, 200, 0.4);
+backdrop-filter: blur(5px);
+-webkit-backdrop-filter: blur(5px);
+}
+table th,
+table td {
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+}
+tbody > tr {
+  -webkit-transition: background-color .25s ease;
+  transition: background-color .25s ease;  
+    border-bottom: 1px solid gainsboro;
+}
+tbody > tr:nth-child(odd) {
+  background: rgba(0, 0, 0, 0.1);
+}
+tbody > tr:nth-child(even) {
+  background: rgba(0, 0, 0, 0.2);
+}
+tbody > tr:hover, tbody > tr:active {
+  background: rgba(0, 0, 0, 0.4);
+}
+tr {
+}
+tbody > tr:last-of-type { /*Total row*/
+	border-bottom: none;
+	font-weight: bold;
+	background: rgba(255,255,255,0.15);
+}
+.small-column {
+	width: 4rem;
+}
+.large-text {
+	font-size: 1.5rem;
+}
+.truncate-overflow > *{
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.top-left-round{
+  border-radius:0.5rem 0 0 0;
+}
+.top-right-round{
+  border-radius:0 0.5rem 0 0;
+}
+.top-round{
+  border-radius:0 0.5rem 0.5rem 0;
+}
+.bot-left-round{
+  border-radius:0 0 0 0.5em;
+}
+.bot-right-round{
+  border-radius:0 0 0.5em 0;
+}
+nav {
+  position: absolute;
+  bottom: 0%;
+  left: 0;
+  height:20%;
+  width: 100%;
+  display: block;
+  justify-content: space-evenly;
+  background: rgba(128, 128, 128, 0.3);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  z-index:2;
+}
+button {
+  width: 100%;
+  border: none;
+  background: transparent;
+  font-size: 1rem;
+  color: whitesmoke;
+}
+.nav-wrapper {
+  height:50%;
+  display: flex;
+  justify-content: space-evenly;
+}
+.nav-wrapper:after {
+  content: '';
+  width: 100%;
+  height: 2px;
+  background: white;
+  position: absolute;
+}
+.nav-content {
+  height:50%;
+  display: flex;
+  justify-content: space-evenly;
+  border-top: 1px solid gainsboro;
+}
+.active-tab {
+  color: white;  
+  border-bottom: 1px solid gainsboro;
+  background: rgba(0,0,0,0.2)
+}
+
+/* The side navigation menu */
+.sidenav {
+  height: 100%; 
+  position:absolute;
+  width: 0;
+  z-index: 3;
+  top: 0;
+  background: var(--primary-900);
+  overflow-x: hidden;
+  padding-top: 5%;
+}
+
+/* The navigation menu links */
+.view-link {
+  padding: 1rem;
+  font-size: 1.2rem;
+  color: gainsboro;
+  display: block;
+}
+
+/* When you mouse over the navigation links, change their color */
+.view-link:hover {
+  background: rgba(0,0,0,0.2);
+}
+
+
+
+
+
+
+/* Dropup Button */
+.dropbtn {
+  background-color: #3498DB;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  justify-content:center;
+  text-align: center;
+}
+
+
+
+.rightmost {
+	float:right;
+}
+.nav-item:hover{
+	background: rgba(0,0,0,0.4);
+}
+.nav-item button {
+	width:100%;
+	height:100%;
+}
+.dropup-content {
+  position: absolute;
+  bottom: 10vh;
+  left:2px; /*TBD in code*/
+  width:33%; /*TBD in code*/ 
+  background: rgba(0, 0, 0, 0.4);
+backdrop-filter: blur(5px);
+-webkit-backdrop-filter: blur(5px);
+z-index:5;
+  
+}
+.dropup-content a {
+  color: white;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align:center;
+}
+/* Show the dropup menu on hover */
+.dropup:hover .dropup-content {
+  display: block;
+}
+
+
+
+
+
+@media (max-width:768px) {
+	.sidenav-right {
+		right: 0px;
+	}
+
+	.sidenav-left {
+		left: 0px;
+	}
+	
+	.sidenav-open {
+		width:25vw;
+	}
+
+	.main-shift-left {
+		margin-right: 0px;
+		margin-left: 25%
+	}
+
+	.main-shift-right {
+		margin-left: 0px;
+		margin-right: 25%
+	}
+}
+
+@media(min-width: 768px) {
+	.sidenav {
+		width: 20%;
+		display:block;
+		left: 0;
+		box-shadow: 4px 0px 8px rgba(0, 0, 0, 0.5);
+	}
+
+	main {
+		height: 100%;
+		width: 80%;
+		left: 20%;
+	}
+	.container{
+		width:50%;
+		box-shadow: 4px 0px 8px rgba(0, 0, 0, 0.5);
+	}
+	.nav-trigger {
+		display:none;
+	}
+	.nav-item {
+		width: 33%;
+	}
+}
