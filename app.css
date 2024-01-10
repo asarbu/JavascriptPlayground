@@ -151,7 +151,7 @@ button {
   border: none;
   background: transparent;
   font-size: 1rem;
-  color: whitesmoke;
+  color: whitesmoke;  
 }
 .nav-wrapper {
   height:50%;
@@ -220,9 +220,7 @@ button {
 
 
 
-.rightmost {
-	float:right;
-}
+
 .nav-item:hover{
 	background: rgba(0,0,0,0.4);
 }
@@ -252,7 +250,10 @@ z-index:5;
 .dropup:hover .dropup-content {
   display: block;
 }
-
+.rightmost {
+	/*float:right;*/
+	color: rgba(255,255,255,0.5);
+}
 
 
 
