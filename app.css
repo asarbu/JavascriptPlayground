@@ -1,5 +1,6 @@
 * {
-  margin: 0;
+  margin: 0px;
+  padding: 0px;
   box-sizing: border-box;
   scroll-behavior: smooth;
   font-family: Helvetica, sans-serif;
@@ -256,7 +257,114 @@ z-index:5;
 }
 
 
+/* The Modal (background) */
+.modal {
+  visibility: hidden; /* Hidden by default */
+  opacity:0;
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.3); /* Black w/ opacity */
+  animation: fade 2s infinite;
+  z-index:6;
+}
 
+/* Modal Content */
+.modal-content {
+  position: fixed;
+  flex: 1 0 100%;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height:75%;
+  z-index:6;
+  bottom: -75%;
+  background: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border-radius:1rem 1rem 0 0;
+  border-top: 1px solid gainsboro;
+}
+
+/* The Close Button */
+.close {
+  color: white;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.modal-header {
+	height: 15%;
+	padding:2%;
+	text-align:center;
+}
+
+.modal-body {
+	height: 80%;
+	margin: 3%;
+}
+
+.modal-footer {
+	height: 5%;
+	margin: 5%;
+	display: flex;
+	justify-content: space-between;
+}
+
+h3:hover {
+	text-decoration: underline;
+}
+
+.fade-in {
+  visibility: visible;
+  opacity: 1;
+  transition: opacity 2s linear;
+}
+
+.fade-out {
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s 2s, opacity 2s linear;
+}
+
+/*InputField. Taken from: https://www.codingnepalweb.com/create-glassmorphism-login-form-html-css/?fbclid=IwAR1RwE7thkqWvDRFphNTGGhOyrDGSzOknf5W1XT65gkeHicr-oK0hzsOv0I*/
+
+.input-field {
+  position: relative;
+  border-bottom: 2px solid #ccc;
+  margin: 15px 0;
+}
+.input-field label {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  color: #fff;
+  font-size: 16px;
+  pointer-events: none;
+  transition: 0.15s ease;
+}
+.input-field input {
+  width: 100%;
+  height: 40px;
+  background: transparent;
+  border: none;
+  outline: none;
+  font-size: 16px;
+  color: #fff;
+}
+.input-field input:focus~label,
+.input-field input:valid~label {
+  font-size: 0.8rem;
+  top: 10px;
+  transform: translateY(-120%);
+}
 
 @media (max-width:768px) {
 	.sidenav-right {

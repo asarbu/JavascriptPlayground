@@ -6,7 +6,6 @@
 		<title>Change!</title>
 		<!-- CSS  -->
 		<link href="app.css" type="text/css" rel="stylesheet" media="screen,projection" />
-		<link rel="stylesheet" href="slider.css" /></style>
 </head>
 <body>
 	<div id="sidenav" class="sidenav">
@@ -319,26 +318,55 @@
 
 	  <nav>
 		<div class="nav-wrapper">
-			<button class="nav-item large-text">+</button>
+			<button id="showModalLeft" class="nav-item large-text">+</button>
 			<button class="nav-item large-text">✎</button>
 			<button class="nav-item large-text">Σ</button>
 			<button class="nav-item large-text">✎</button>
-			<button class="nav-item large-text">+</button>
+			<button id="showModalRight" class="nav-item large-text">+</button>
 		</div>
 		<div class="nav-content">
 		<!--use div because anchor poses problems at swipe-->
-		  <button class="tab nav-item nav-trigger" data-side="left">☰</button>
-		  <div class="dropup nav-item active-tab">
+		  <button class="nav-item nav-trigger" data-side="left">☰</button>
+		  <div class="tab dropup nav-item active-tab">
 			<button>2023 <span class="rightmost">▼</span></button>
 		  </div>
 		  <button class="tab nav-item">Feb <span class="rightmost">▲</span></button>
 		  <button class="tab nav-item">Optional expenses <span class="rightmost">▲</span></button>
-		  <button class="tab nav-trigger nav-item" data-side="right">☰</button>
+		  <button class="nav-trigger nav-item" data-side="right">☰</button>
 		</div>
 		</nav>
 	</main>
 	
-	<script type="text/javascript" src="slider.js"></script>
+	<!-- Modal backdrop. Code adapted from: https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_modal_bottom-->
+	<div id="modal-backdrop" class="modal"></div>
+	<!-- Modal content -->
+	  <div id="modal-content" class="modal-content">
+		<div class="modal-header">
+		<h2>Insert Spending</h2>
+		</div>
+		<div class="modal-body">
+		  <div class="input-field">
+			<input type="date" required value="2022-11-20">
+			<label>Date:</label>
+		  </div>
+		  <div class="input-field">
+			<input id="description-input-field" type="text" required>
+			<label>Description:</label>
+		  </div>
+		  <div class="input-field">
+			<input type="text" required>
+			<label>Category:</label>
+		  </div>
+		  <div class="input-field">
+			<input type="text" required>
+			<label>Price:</label>
+		  </div>
+		</div>
+		<div class="modal-footer">
+		  <h3>Save</h3><h3>Cancel</h3><h3>Save</h3>
+		</div>
+	</div>
+	<script type="text/javascript" src="app.js"></script>
 	<script>
 	
 	  

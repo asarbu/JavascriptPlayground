@@ -58,6 +58,41 @@ const init = () => {
   $sliderWrapper.style.transition = 'transform 0s linear';
   $sliderWrapper.style.transform = `translateX(${-containerWidth * 1}px)`; 
   $sidenav_left.parentNode.appendChild($sidenav_right);
+  
+  // Get the modalBackdrop
+	var modalBackdrop = document.getElementById("modal-backdrop");
+	const modal = document.getElementById("modal-content");
+	// Get the button that opens the modal
+	var btn = document.getElementById("showModalRight");
+
+	// Get the <span> element that closes the modal
+	var span = document.getElementsByClassName("close")[0];
+
+	// When the user clicks the button, open the modal 
+	btn.onclick = function() {	  	
+	  modalBackdrop.style.visibility= "visible";
+	  modalBackdrop.style.opacity= 1;
+	  modalBackdrop.style.transition= "opacity 0.2s linear";
+	  
+	  modal.style.transition = 'transform 0.2s linear';
+	  modal.style.transform = `translateY(-100%)`;
+	  
+	  const descriptionInputField = document.getElementById("description-input-field");
+	  descriptionInputField.focus();
+	}
+
+	// When the user clicks anywhere outside of the modal, close it
+	window.onclick = function(event) {
+	  if (event.target == modalBackdrop) {
+		  
+		  modal.style.transition = 'transform 0.2s linear';
+		  modal.style.transform = `translateY(100%)`;
+		  
+		  	  modalBackdrop.style.visibility= "hidden";
+	  modalBackdrop.style.opacity= 0;
+	  modalBackdrop.style.transition= "visibility 0s 0.2s, opacity 0.2s linear";
+	  }
+	}
 };
 
 const refresh = () => {
@@ -190,3 +225,5 @@ window.addEventListener('mouseup', endSlider);
 window.addEventListener('touchend', endSlider);
 window.addEventListener('resize', refresh, true);
 init();
+
+//Modal idea https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_modal_bottom
