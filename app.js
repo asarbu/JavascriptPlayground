@@ -59,20 +59,16 @@ const init = () => {
   $sliderWrapper.style.transform = `translateX(${-containerWidth * 1}px)`; 
   $sidenav_left.parentNode.appendChild($sidenav_right);
   
-  // Get the modalBackdrop
-	var modalBackdrop = document.getElementById("modal-backdrop");
-	const modal = document.getElementById("modal-content");
+  	// Get the modalBackdrop
+	var addSpendingBackdrop = document.getElementById("add-spending-backdrop");
+	const modal = document.getElementById("add-spending-content");
 	// Get the button that opens the modal
 	var btn = document.getElementById("showModalRight");
-
-	// Get the <span> element that closes the modal
-	var span = document.getElementsByClassName("close")[0];
-
 	// When the user clicks the button, open the modal 
 	btn.onclick = function() {	  	
-	  modalBackdrop.style.visibility= "visible";
-	  modalBackdrop.style.opacity= 1;
-	  modalBackdrop.style.transition= "opacity 0.2s linear";
+	  addSpendingBackdrop.style.visibility= "visible";
+	  addSpendingBackdrop.style.opacity= 1;
+	  addSpendingBackdrop.style.transition= "opacity 0.2s linear";
 	  
 	  modal.style.transition = 'transform 0.2s linear';
 	  modal.style.transform = `translateY(-100%)`;
@@ -80,18 +76,73 @@ const init = () => {
 	  const descriptionInputField = document.getElementById("description-input-field");
 	  descriptionInputField.focus();
 	}
+	
+	// Get the modalBackdrop
+	var categoryBackdrop = document.getElementById("category-backdrop");
+	const categoryModal = document.getElementById("category-content");
+	// Get the button that opens the modal
+	var categoryInput = document.getElementById("category-input");
+	categoryInput.onclick = function(event) {
+		categoryBackdrop.style.visibility= "visible";
+		categoryBackdrop.style.opacity= 1;
+		categoryBackdrop.style.transition= "opacity 0.2s linear";
+
+		categoryModal.style.transition = 'transform 0.2s linear';
+		categoryModal.style.transform = `translateY(-100%)`;
+	}
 
 	// When the user clicks anywhere outside of the modal, close it
 	window.onclick = function(event) {
-	  if (event.target == modalBackdrop) {
-		  
-		  modal.style.transition = 'transform 0.2s linear';
-		  modal.style.transform = `translateY(100%)`;
-		  
-		  	  modalBackdrop.style.visibility= "hidden";
-	  modalBackdrop.style.opacity= 0;
-	  modalBackdrop.style.transition= "visibility 0s 0.2s, opacity 0.2s linear";
-	  }
+		if (event.target == addSpendingBackdrop) {
+			modal.style.transition = 'transform 0.2s linear';
+			modal.style.transform = `translateY(100%)`;
+
+			addSpendingBackdrop.style.visibility= "hidden";
+			addSpendingBackdrop.style.opacity= 0;
+			addSpendingBackdrop.style.transition= "visibility 0s 0.2s, opacity 0.2s linear";
+		} else if(event.target == categoryBackdrop) {
+			categoryModal.style.transition = 'transform 0.2s linear';
+			categoryModal.style.transform = `translateY(100%)`;
+
+			categoryBackdrop.style.visibility= "hidden";
+			categoryBackdrop.style.opacity= 0;
+			categoryBackdrop.style.transition= "visibility 0s 0.2s, opacity 0.2s linear";
+		}
+	}
+
+	let accordion_btns  = document.querySelectorAll('.accordion_container .accordion .header'),
+    accordion_bodys = document.querySelectorAll('.accordion_container .accordion .body');
+
+	if(accordion_btns && accordion_bodys)
+	{
+		accordion_btns = Array.isArray(accordion_btns) ? accordion_btns : Object.values(accordion_btns);
+		accordion_btns.forEach(accordion_btn=>{
+			accordion_btn.addEventListener('click', function(){
+				process_accordion(this);
+			});
+		});
+
+		function process_accordion(x) {
+			set_height_0();
+
+			let next_sibling = x.nextElementSibling;
+			if(next_sibling.offsetHeight>0)
+			{
+				next_sibling.style.height = '0px';
+				x.closest('.accordion').classList.remove('active');
+			} else {
+				next_sibling.style.height = next_sibling.scrollHeight+30+'px';
+				x.closest('.accordion').classList.add('active');
+			}
+		}
+
+		function set_height_0() {
+			accordion_bodys = Array.isArray(accordion_bodys) ? accordion_bodys : Object.values(accordion_bodys);
+			accordion_bodys.forEach(accordion_body=>{
+				accordion_body.style.height = '0px';
+				accordion_body.closest('.accordion').classList.remove('active');
+			});
+		}
 	}
 };
 

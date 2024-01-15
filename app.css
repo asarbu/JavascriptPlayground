@@ -251,8 +251,7 @@ z-index:5;
 .dropup:hover .dropup-content {
   display: block;
 }
-.rightmost {
-	/*float:right;*/
+.white-50 {
 	color: rgba(255,255,255,0.5);
 }
 
@@ -284,7 +283,7 @@ z-index:5;
   height:75%;
   z-index:6;
   bottom: -75%;
-  background: rgba(0, 0, 0, 0.3);
+  background: rgba(0, 0, 0, 0.2);
   backdrop-filter: blur(5px);
   -webkit-backdrop-filter: blur(5px);
   border-radius:1rem 1rem 0 0;
@@ -413,4 +412,46 @@ h3:hover {
 	.nav-item {
 		width: 33%;
 	}
+}
+
+
+
+
+/*Accordion*/
+.accordion_container {
+  display: flex;
+  justify-content: center;
+}
+
+.accordion_container .container .accordion .header {
+  font-weight: 600;
+  display: block;
+  width: 100%;
+  text-align: left;
+  border: none;
+  padding: 15px;
+  color: white;
+  cursor: pointer;
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border-radius:0.5rem 0.5rem;
+  border-top: 1px solid gainsboro;
+  box-shadow: 0 2px 5px #0005;
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.accordion_container .container .accordion .body {
+  background-image: linear-gradient(45deg, #ffffff96, #ffffff4f);
+  padding: 0 15px;
+  backdrop-filter: blur(15px);
+  color: white;
+  font-size: 18px;
+  line-height: 1.5;
+  height: 0px;
+  overflow: hidden;
+  transition: 0.2s ease-in;
+}
+
+.accordion_container .container .accordion.active .body {
+  padding: 15px;
 }
