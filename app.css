@@ -363,6 +363,7 @@ h3:hover {
   font-size: 0.8rem;
   top: 10px;
   transform: translateY(-120%);
+  color: gainsboro;
 }
 
 @media (max-width:768px) {
@@ -415,43 +416,49 @@ h3:hover {
 }
 
 
-
-
-/*Accordion*/
-.accordion_container {
-  display: flex;
-  justify-content: center;
+.accordion {
+  width: 80%;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  left: 50%;
+  top: 50%;
 }
-
-.accordion_container .container .accordion .header {
-  font-weight: 600;
-  display: block;
-  width: 100%;
-  text-align: left;
-  border: none;
-  padding: 15px;
-  color: white;
-  cursor: pointer;
+.accordion-state {
+  display: none;
+  appearance: none;
+}
+.accordion-item {
+  padding: 0.5rem;
+  margin: 0.5rem;
+  color: gainsboro;
+  border-radius: 0.5em;
+  background: rgba(255, 255, 255, 0.2);
   backdrop-filter: blur(5px);
   -webkit-backdrop-filter: blur(5px);
-  border-radius:0.5rem 0.5rem;
   border-top: 1px solid gainsboro;
-  box-shadow: 0 2px 5px #0005;
-  background-color: rgba(255, 255, 255, 0.2);
+  justify-content: center;
 }
-
-.accordion_container .container .accordion .body {
-  background-image: linear-gradient(45deg, #ffffff96, #ffffff4f);
-  padding: 0 15px;
-  backdrop-filter: blur(15px);
+.accordion-content {
   color: white;
-  font-size: 18px;
-  line-height: 1.5;
-  height: 0px;
+}
+.accordion-header {
+  color: white;
+  cursor: pointer;
+  padding: 1em 1em;
+  width: 100%;
+  display: block;
+  font-size: 1.2rem;
+}
+.accordion-state ~ .accordion-content {
+  max-height: 0;
   overflow: hidden;
-  transition: 0.2s ease-in;
+  transition: 0.2s;
+}
+.accordion-state:checked ~ .accordion-content {
+  max-height: 100vh;
+  transition: 1s;
 }
 
-.accordion_container .container .accordion.active .body {
-  padding: 15px;
+.accordion-secondary {
+  background: rgba(0, 0, 0, 0.01);
 }
