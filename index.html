@@ -316,24 +316,24 @@
 				<a href="#">2024</a>
 			</div>
 
-	  <nav>
-		<div class="nav-wrapper">
-			<button id="showModalLeft" class="nav-item large-text">+</button>
-			<button class="nav-item large-text">✎</button>
-			<button class="nav-item large-text">Σ</button>
-			<button class="nav-item large-text">✎</button>
-			<button id="showModalRight" class="nav-item large-text">+</button>
-		</div>
-		<div class="nav-content">
-		<!--use div because anchor poses problems at swipe-->
-		  <button class="nav-item nav-trigger" data-side="left">☰</button>
-		  <div class="tab dropup nav-item active-tab">
-			<button>2023 <span class="rightmost">▼</span></button>
-		  </div>
-		  <button class="tab nav-item">Feb <span class="rightmost">▲</span></button>
-		  <button class="tab nav-item">Optional expenses <span class="rightmost">▲</span></button>
-		  <button class="nav-trigger nav-item" data-side="right">☰</button>
-		</div>
+		<nav>
+			<div class="nav-wrapper">
+				<button id="showModalLeft" class="nav-item large-text">+</button>
+				<button class="nav-item large-text">✎</button>
+				<button class="nav-item large-text">Σ</button>
+				<button class="nav-item large-text">✎</button>
+				<button id="showModalRight" class="nav-item large-text">+</button>
+			</div>
+			<div class="nav-content">
+			<!--use div because anchor poses problems at swipe-->
+			<button class="nav-item nav-trigger" data-side="left">☰</button>
+			<div class="tab dropup nav-item active-tab">
+				<button>2023 <span class="white-50">▼</span></button>
+			</div>
+			<button class="tab nav-item">Feb <span class="white-50">▲</span></button>
+			<button class="tab nav-item">Optional expenses <span class="white-50">▲</span></button>
+			<button class="nav-trigger nav-item" data-side="right">☰</button>
+			</div>
 		</nav>
 	</main>
 	
@@ -384,14 +384,14 @@
 				<span>Vital Expenses</span>
 			  </label>
 			  <div class="accordion-content">
-				<div class="accordion-item accordion-secondary">
+				<div class="accordion-secondary">
 				  One
 				</div>
-				<div class="accordion-item accordion-secondary">
-					One
+				<div class="accordion-secondary">
+					Two
 				</div>
-				<div class="accordion-item accordion-secondary">
-					One
+				<div class="accordion-secondary">
+					Three
 				</div>
 			  </div>
 			</div>
@@ -400,23 +400,78 @@
 			<div class="accordion-item">
 				<input type="checkbox" id="item-2" class="accordion-state"/>
 				<label for="item-2" class="accordion-header">
-					<span>Vital Expenses</span>
+					<span>Optional Expenses</span>
 				</label>
 				<div class="accordion-content">
 					<div class="accordion-secondary">
 					One
 					</div>
 					<div class="accordion-secondary">
-						One
+						Two
 					</div>
 					<div class="accordion-secondary">
-						One
+						Tree
+					</div>
+				</div>
+			</div>
+
+			<!-- Item 3 -->
+			<div class="accordion-item">
+				<input type="checkbox" id="item-3" class="accordion-state"/>
+				<label for="item-3" class="accordion-header">
+					<span>Debt</span>
+				</label>
+				<div class="accordion-content">
+					<div class="accordion-secondary">
+					One
+					</div>
+					<div class="accordion-secondary">
+						Two
+					</div>
+					<div class="accordion-secondary">
+						Tree
+					</div>
+				</div>
+			</div>
+
+			<!-- Item 4 -->
+			<div class="accordion-item">
+				<input type="checkbox" id="item-4" class="accordion-state"/>
+				<label for="item-4" class="accordion-header">
+					<span>Household</span>
+				</label>
+				<div class="accordion-content">
+					<div class="accordion-secondary">
+					One
+					</div>
+					<div class="accordion-secondary">
+						Two
+					</div>
+					<div class="accordion-secondary">
+						Tree
+					</div>
+				</div>
+			</div>
+
+			<!-- Item 5 -->
+			<div class="accordion-item">
+				<input type="checkbox" id="item-5" class="accordion-state"/>
+				<label for="item-5" class="accordion-header">
+					<span>Wasted money</span>
+				</label>
+				<div class="accordion-content">
+					<div class="accordion-secondary">
+					One
+					</div>
+					<div class="accordion-secondary">
+						Two
+					</div>
+					<div class="accordion-secondary">
+						Tree
 					</div>
 				</div>
 			</div>
 		</div>
-
-
 	<script type="text/javascript" src="app.js"></script>
 </body>
 </html>
